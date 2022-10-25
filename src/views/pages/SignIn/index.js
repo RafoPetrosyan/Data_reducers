@@ -1,13 +1,14 @@
 import React from 'react';
 import { Field, Form, FormikProvider } from "formik";
 
-import InputField from "shared/forms/InputField";
+import InputField from "views/shared/forms/InputField";
 
 import useContainer from "./hook";
 import "./style.scss";
 
 const SignIn = () => {
     const { formik } = useContainer();
+
     return (
         <div className='signIn'>
            <div className="forms">

@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { DATE_FORMAT } from 'constants';
+import {DATE_FORMAT} from "constanst/globals";
 
 export default function minAge(minValue) {
     // eslint-disable-next-line func-names

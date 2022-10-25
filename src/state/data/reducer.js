@@ -5,7 +5,6 @@ import * as types from 'state/data/types';
 const initialState = {
     meta: {},
 };
-
 const dataReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.DATA_API_REQUEST:
@@ -14,11 +13,11 @@ const dataReducer = (state = initialState, action) => {
             });
         case types.DATA_API_SUCCESS:
             return mergeDeepRight(state, {
-                meta: { [action.endpoint]: { loading: false } },
+                meta: { [action.endpoint]: { loading: false, response: action.response } },
             });
         case types.DATA_API_FAILURE:
             return mergeDeepRight(state, {
-                meta: { [action.endpoint]: { loading: false } },
+                meta: { [action.endpoint]: { loading: false, response: action.response } },
             });
         default:
             return state;

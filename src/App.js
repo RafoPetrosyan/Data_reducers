@@ -4,8 +4,8 @@ import {Route, Routes} from "react-router-dom";
 import AuthGuardLogin from "guards/AuthGuardLogin";
 import AuthGuardHome from "guards/AuthGuardHome";
 
-import SignIn from "pages/SignIn";
-import Home from "pages/Home";
+import SignIn from "views/pages/SignIn";
+import Home from "views/pages/Home";
 
 const App = () => (
     <Routes>
@@ -14,7 +14,7 @@ const App = () => (
         </Route>
 
         <Route path="/" element={<AuthGuardHome/>} >
-            <Route path='home' element={<Home/>} />
+            <Route path='' element={<Home/>} />
         </Route>
     </Routes>
 );

@@ -1,12 +1,15 @@
 import axios from 'axios';
 
+import { BASE_URL } from "constanst/globals";
+import Account from "lib/account";
+
 const httpClient = axios.create({
-    baseURL: 'https://timeless.brainfors.am/api/',
+    baseURL: BASE_URL,
 });
 
 httpClient.interceptors.request.use((config) => {
 
-    const accessToken = localStorage.getItem('accessToken')
+    const accessToken = Account.getAccessToken();
     if (accessToken) {
         config.headers['x-authorization'] = accessToken
     }
@@ -18,10 +21,7 @@ httpClient.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response && error.response.status === 401) {
-            console.log('401')
-        }
-        if (error.response && error.response.data && error.response.status !== 401) {
-            console.log('!401');
+            Account.delete();
         }
         return Promise.reject(error)
     }

@@ -1,9 +1,13 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
+import Account from "lib/account";
+
 const AuthGuardLogin = () => {
-    if (localStorage.getItem('accessToken')) {
-        return <Navigate to='/home'/>
+    const accessToken = Account.getAccessToken();
+
+    if (accessToken) {
+        return <Navigate to='/'/>
     }
     
     return <Outlet />
