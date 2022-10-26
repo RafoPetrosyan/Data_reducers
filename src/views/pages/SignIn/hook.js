@@ -13,9 +13,8 @@ function useContainer() {
     const { endpoint } = signInUserEndpoint;
     const { isLoading } = useParametricSelector(endpoint);
 
-    console.log(isLoading, '8888846849485515')
-
     const onSubmit = (values) => {
+        console.log(values)
         dispatch(makeAction(USER_SIGN_IN, values));
     };
 
@@ -33,6 +32,7 @@ function useContainer() {
 
     return {
         formik,
+        isLoading,
     }
 }
 
