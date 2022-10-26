@@ -28,14 +28,14 @@
 
 
 import React from 'react';
-import { FormikProvider } from "formik";
-import {Form, Input} from 'antd';
+import {FormikProvider} from "formik";
+import {Input, Form} from "antd";
 
 import InputFiledWithAntd from "views/shared/forms/InputFiledWithAntd";
 
 import useContainer from "./hook";
 import "./style.scss";
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 const SignIn = () => {
     const { formik } = useContainer();
@@ -45,10 +45,9 @@ const SignIn = () => {
     return (
         <div className='signIn'>
             <div className="forms">
-                <Form>
+                <Form onFinish={formik.handleSubmit}>
                     <FormikProvider value={formik}>
-                        {/*<InputFiledWithAntd name="login" label="Login" className="signInInputs" />*/}
-                        <Input.Password className="signInInputs"/>
+                        <InputFiledWithAntd name="login" label="Login" className="signInInputs" />
                         <InputFiledWithAntd
                             name="password"
                             label="Password"

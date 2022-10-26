@@ -14,7 +14,6 @@ function useContainer() {
     const { isLoading } = useParametricSelector(endpoint);
 
     const onSubmit = (values) => {
-        console.log(values)
         dispatch(makeAction(USER_SIGN_IN, values));
     };
 

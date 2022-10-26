@@ -8,12 +8,10 @@ const InputFiledWithAntd = ({ label, name, placeholder, formItemClassName, asCom
     const hasError = meta.touched && meta.error;
     const Error = hasError ? <div className="error">{meta.error}</div> : undefined;
 
-    console.log(props)
-
     return (
         <Form.Item
             className={formItemClassName}
-            label={label}
+            label={<span>{label}</span>}
             htmlFor={name}
             validateStatus={hasError && 'error'}
             help={Error}
