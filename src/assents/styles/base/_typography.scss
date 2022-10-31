@@ -1,0 +1,19 @@
+@mixin text-body {
+  font-family: Open-Sans, Arial, Helvetica, sans-serif;
+  font-size: 1.4rem !important;
+  font-weight: 400;
+  color: red;
+  line-height: calc(24 / 14);
+}
+@mixin profile__text--overflow {
+  // stylelint-disable-next-line
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  // stylelint-disable-next-line
+  -webkit-box-orient: vertical;
+  // stylelint-disable-next-line
+  box-orient: vertical;
+  // stylelint-disable-next-line
+  text-overflow: ellipsis;
+}

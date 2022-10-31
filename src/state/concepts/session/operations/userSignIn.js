@@ -35,7 +35,7 @@ const userSignIn = createLogic({
             dispatch(makeAction(USER_SIGN_IN_SUCCESS, user));
 
         }catch (e){
-            dispatch(dataApiFailure({ endpoint }));
+            dispatch(dataApiFailure({ endpoint, response: e.response.data.message }));
         }
         done();
     },

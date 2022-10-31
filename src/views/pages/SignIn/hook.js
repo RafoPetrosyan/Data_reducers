@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import {useFormik} from "formik";
 import {useDispatch} from "react-redux";
 
@@ -11,7 +12,7 @@ import useParametricSelector from "hooks/useParametricSelector";
 function useContainer() {
     const dispatch = useDispatch();
     const { endpoint } = signInUserEndpoint;
-    const { isLoading } = useParametricSelector(endpoint);
+    const { isLoading, response } = useParametricSelector(endpoint);
 
     const onSubmit = (values) => {
         dispatch(makeAction(USER_SIGN_IN, values));
@@ -28,6 +29,13 @@ function useContainer() {
         validationSchema,
         onSubmit,
     });
+
+    const onUpdateRequestResponse = () => {
+        if (!response) return;
+        formik.setErrors({login: response, password: ''})
+    };
+
+    useEffect(onUpdateRequestResponse, [response]);
 
     return {
         formik,

@@ -40,8 +40,6 @@ import 'antd/dist/antd.min.css';
 const SignIn = () => {
     const { formik } = useContainer();
 
-    console.log('Formik', formik.values)
-
     return (
         <div className='signIn'>
             <div className="forms">
@@ -52,7 +50,7 @@ const SignIn = () => {
                             name="password"
                             label="Password"
                             className="signInInputs"
-                            formItemClassName="formItemClassName"
+                            formItemClassName="formItem"
                             asComponent={Input.Password}
                         />
                         <button type="submit">Submit</button>
