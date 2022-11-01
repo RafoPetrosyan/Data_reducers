@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MODAL_COMPONENTS from 'views/pages/ModalRoot/modalComponents';
+import MODAL_COMPONENTS from 'views/ModalRoot/modalComponents';
 
 const ModalRoot = ({ modalType, modalProps, onClose }) => {
     if (!modalType) {

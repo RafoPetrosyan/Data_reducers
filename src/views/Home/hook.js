@@ -16,7 +16,7 @@ function useContainer() {
     }
 
     const showExampleModal = () => {
-        dispatch(showModal({modalType: 'AMENITIES_MODAL'}));
+        dispatch(showModal({modalType: 'EXAMPLE_MODAL', modalProps: {title: 'Example modal'}}));
     }
 
     return {

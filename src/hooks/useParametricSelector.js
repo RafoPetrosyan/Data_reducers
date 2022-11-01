@@ -1,10 +1,8 @@
 import { useSelector } from 'react-redux';
 
 const useParametricSelector = (endpoint) => {
-    const isLoading = useSelector(({dataReducer}) =>
-        dataReducer.meta?.[endpoint]?.loading || false);
-    const response = useSelector(({dataReducer}) =>
-        dataReducer.meta?.[endpoint]?.response || null);
+    const isLoading = useSelector(({data}) => data.meta?.[endpoint]?.loading || false);
+    const response = useSelector(({data}) => data.meta?.[endpoint]?.response || null);
 
     return { isLoading, response };
 };

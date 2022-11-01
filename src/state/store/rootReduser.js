@@ -1,13 +1,13 @@
 import {combineReducers} from "redux";
 
-import dataReducer from "state/data";
-import sessionReducer from "state/concepts/session/reducers";
-import modalReducer from "state/modal/reducer";
+import data from "state/data";
+import modal from "state/modal/reducer";
+import session from "state/concepts/session/reducers";
 
 const rootReducer = combineReducers({
-    dataReducer,
-    sessionReducer,
-    modalReducer,
+    data,
+    modal,
+    session,
 });
 
 export default rootReducer;

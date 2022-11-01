@@ -1,7 +1,7 @@
-import sessionOperations from "../concepts/session/operations";
+import sessionOperations from "state/concepts/session/operations";
 
-const rootLogics = [
+const rootLogic = [
     ...sessionOperations,
 ];
 
-export default rootLogics;
+export default rootLogic;
