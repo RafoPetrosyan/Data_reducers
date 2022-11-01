@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 
 import {USER_SIGN_OUT} from "state/concepts/session/types";
 import {makeAction} from "state/concepts/makeAction";
+import {showModal} from "state/modal/action";
 
 function useContainer() {
     const dispatch = useDispatch();
@@ -14,8 +15,13 @@ function useContainer() {
         history.replace('/login');
     }
 
+    const showExampleModal = () => {
+        dispatch(showModal({modalType: 'AMENITIES_MODAL'}));
+    }
+
     return {
         handleSignOut,
+        showExampleModal,
     }
 }
 
