@@ -1,5 +1,5 @@
-const endpoint = (feature, method, route) => ({
-    endpoint: `${feature} ${method} ${route}`,
+const endpoint = (feature, route) => ({
+    endpoint: `${feature} ${route}`,
     url: route,
 });
 
