@@ -3,7 +3,7 @@ import React from 'react';
 import useContainer from "./hook";
 
 const Home = () => {
-    const { handleSignOut, showExampleModal } = useContainer();
+    const {handleSignOut, showExampleModal} = useContainer();
 
     return (
         <div>

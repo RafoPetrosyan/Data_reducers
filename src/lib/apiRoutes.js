@@ -1,1 +1,0 @@
-export const userSignInRoute = '/user/sign-in-admin';
