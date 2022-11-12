@@ -11,8 +11,12 @@ export const dataApiSuccess = ({ endpoint, response }) => ({
     response,
 });
 
-export const dataApiFailure = ({ endpoint, response }) => ({
+export const dataApiFailure = ({ endpoint, error }) => ({
     type: types.DATA_API_FAILURE,
-    response,
+    error,
     endpoint,
+});
+
+export const clearDataReducer = () => ({
+    type: types.CLEAR_DATA_REDUCER,
 });

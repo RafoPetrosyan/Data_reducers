@@ -2,7 +2,6 @@ import { createLogic } from 'redux-logic';
 
 import {USER_SIGN_IN_SUCCESS, USER_SIGN_IN} from "state/concepts/session/types";
 import { signInUserEndpoint } from "state/concepts/session/endpoints";
-import {dataApiFailure, dataApiRequest, dataApiSuccess} from "state/data/actions";
 import {makeAction} from "state/concepts/makeAction";
 
 import history from "utils/browserHistory";
@@ -14,9 +13,7 @@ const userSignIn = createLogic({
     latest: true,
 
     async process({ action, httpClient }, dispatch, done) {
-        const { endpoint, url } = signInUserEndpoint;
-
-        dispatch(dataApiRequest({ endpoint }));
+        const { url } = signInUserEndpoint;
 
         const body = {
             username: action.payload.login,
@@ -25,7 +22,6 @@ const userSignIn = createLogic({
 
         try {
             const { data: { user, token } } = await httpClient.post(url, body);
-            dispatch(dataApiSuccess({ endpoint }));
 
             Account.setAccessToken(token);
             Account.setAccount(user);
@@ -34,8 +30,8 @@ const userSignIn = createLogic({
 
             dispatch(makeAction(USER_SIGN_IN_SUCCESS, user));
 
-        }catch (e){
-            dispatch(dataApiFailure({ endpoint, response: e.response.data.message }));
+        }catch {
+            // take in httpClient
         }
         done();
     },

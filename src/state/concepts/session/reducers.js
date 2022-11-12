@@ -14,8 +14,21 @@ const currentUser = (state = Account.getAccount(), action) => {
     }
 };
 
+const usersList = (state = {usersList: [], dataCount: 0}, action) => {
+    switch (action.type) {
+        case types.FETCH_USERS_LIST_SUCCESS:
+            return {
+                usersList: action.payload.users,
+                dataCount: action.payload.dataCount,
+            }
+        default:
+            return state;
+    }
+};
+
 const sessionReducer = combineReducers({
     currentUser,
+    usersList,
 });
 
 export default sessionReducer;

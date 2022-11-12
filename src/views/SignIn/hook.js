@@ -12,7 +12,7 @@ import useParametricSelector from "hooks/useParametricSelector";
 function useContainer() {
     const dispatch = useDispatch();
     const { endpoint } = signInUserEndpoint;
-    const { isLoading, response } = useParametricSelector(endpoint);
+    const { isLoading, response, error } = useParametricSelector(endpoint);
 
     const onSubmit = (values) => {
         dispatch(makeAction(USER_SIGN_IN, values));
@@ -31,15 +31,16 @@ function useContainer() {
     });
 
     const onUpdateRequestResponse = () => {
-        if (!response) return;
-        formik.setErrors({login: response, password: ''})
+        if (!error) return;
+        formik.setErrors({login: error, password: ''})
     };
 
-    useEffect(onUpdateRequestResponse, [response]);
+    useEffect(onUpdateRequestResponse, [error]);
 
     return {
         formik,
         isLoading,
+        response,
     }
 }
 

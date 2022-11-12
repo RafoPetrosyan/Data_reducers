@@ -1,13 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import {useDispatch} from "react-redux";
+import {clearDataReducer} from "state/data/actions";
 
 const useMount = (callback) => {
-    const ref = useRef(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (ref.current) return;
-
+        dispatch(clearDataReducer());
         callback();
-        ref.current = true;
     }, []);
 };
 
